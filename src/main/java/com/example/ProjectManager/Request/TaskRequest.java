@@ -1,9 +1,7 @@
 package com.example.ProjectManager.Request;
 
 import java.sql.Date;
-import java.util.List;
 
-import com.example.ProjectManager.Entity.TaskResource;
 import com.example.ProjectManager.Entity.TaskTypeEnum;
 
 import jakarta.validation.constraints.DecimalMin;
@@ -25,10 +23,11 @@ public class TaskRequest {
     @DecimalMin(value = "0", message = "task_order must be 0 or higher")
     @NotNull
     private Integer order;
+    private Long parentId;
     private Date start;
     private Date end;
     @NotNull
     private TaskTypeEnum type;
-    private List<TaskResource> resources;
+    private AddTaskResourcesRequest resources;
     
 }

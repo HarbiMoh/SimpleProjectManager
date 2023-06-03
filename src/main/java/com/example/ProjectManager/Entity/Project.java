@@ -38,9 +38,6 @@ public class Project {
     private User owner;
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
-    private List<Task> tasks;
-
-    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
     private List<Resource> resources;
     
 }

@@ -17,6 +17,7 @@ import com.example.ProjectManager.Request.AddTaskResourcesRequest;
 import com.example.ProjectManager.Request.TaskEditRequest;
 import com.example.ProjectManager.Request.TaskRequest;
 import com.example.ProjectManager.Request.TaskResourceEditRequest;
+import com.example.ProjectManager.Response.TaskOrgnizedResponse;
 import com.example.ProjectManager.Response.TaskResourceResponse;
 import com.example.ProjectManager.Response.TaskResponse;
 import com.example.ProjectManager.Service.TaskResourceService;
@@ -36,12 +37,12 @@ public class TaskController {
     private final ProjectRepository projectRepository;
     
     @GetMapping()
-    public List<TaskResponse> getAllTasks(@PathVariable String username, @PathVariable Long projectId){
+    public List<TaskOrgnizedResponse> getAllTasks(@PathVariable String username, @PathVariable Long projectId){
         Optional<Project> project = projectRepository.findByUsernameAndId(username, projectId);
         return project.isPresent()? taskService.getAllTasks(project.get()) : null;
     }
 
-    @GetMapping("/create")
+    @PostMapping("/create")
     public TaskResponse createTask(@PathVariable String username, @PathVariable Long projectId, @Valid @RequestBody TaskRequest request){
         Optional<Project> project = projectRepository.findByUsernameAndId(username, projectId);
         return project.isPresent()? taskService.createTask(project.get(), request) : null; 

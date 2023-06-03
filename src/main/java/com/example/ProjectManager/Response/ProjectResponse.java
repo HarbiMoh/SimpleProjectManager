@@ -16,35 +16,50 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ProjectResponse {
 
-    public static ProjectResponse mapToProjectResponse(Project project){
+
+    private Long id;
+    private String name;
+    private Long cost;
+    private UserResponse owner;
+    private List<TaskOrgnizedResponse> tasks;
+    
+
+
+    public static ProjectResponse mapToProjectResponse(Project project, List<Task> tasks){
         ProjectResponse projectResponse = builder()
         .id(project.getId())
         .name(project.getName())
         .owner(UserResponse.mapToUserResponse(project.getOwner()))
-        .cost(ProjectResponse.calculateCost(project.getTasks()))
-        .tasks(project.getTasks() == null? null : TaskResponse.mapToTaskResponseList(project.getTasks()))
+        .cost(ProjectResponse.calculateCost(tasks))
+        .tasks(tasks == null? null : TaskOrgnizedResponse.mapToTaskOrgnizedResponseList(tasks))
         .id(project.getId())
         .build();
     
         return projectResponse;
     }
-    public static Long calculateCost(List<Task> tasks){
+    private static Long calculateCost(List<Task> tasks){
         long cost = 0L;
         if(tasks != null){
             for(int i = 0; i < tasks.size(); i++){
                 if(tasks.get(i).getResources() != null){
-                    for(int j = 0; j < tasks.get(i).getResources().size(); j++){
-                        cost += tasks.get(i).getResources().get(j).getCost();
+                    cost += calculateTaskResoucesCost(tasks.get(i));
+                }
+                List<Task> subtasks = tasks.get(i).getSubtasks();
+                if(subtasks != null && !subtasks.isEmpty()){
+                    for(int j = 0; j < subtasks.size(); j++){
+                        cost += calculateTaskResoucesCost(subtasks.get(j));
                     }
                 }
             }
         }
         return cost;
     }
-    private Long id;
-    private String name;
-    private Long cost;
-    private UserResponse owner;
-    private List<TaskResponse> tasks;
-    
+
+    private static Long calculateTaskResoucesCost(Task task){
+        Long cost = 0L;
+        for(int j = 0; j < task.getResources().size(); j++){
+            cost += task.getResources().get(j).getCost();
+        }
+        return cost;
+    }
 }

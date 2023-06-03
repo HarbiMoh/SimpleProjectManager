@@ -34,7 +34,7 @@ public class ProjectController {
         return projectService.getProject(username, projectId);
     }
 
-    @GetMapping("create")
+    @PostMapping("create")
     public ResponseEntity<ProjectResponse> createProject(@PathVariable String username, @Valid @RequestBody ProjectRequest request){
         return projectService.createProject(username, request);
     }

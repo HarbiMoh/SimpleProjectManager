@@ -12,14 +12,12 @@ import com.example.ProjectManager.Entity.TaskTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TaskResponse {
-    
+public class TaskOrgnizedResponse {
+
     private Long id;
     private String name;
     private Date start;
@@ -28,8 +26,9 @@ public class TaskResponse {
     private TaskTypeEnum type;
     private Integer order;
     private Long cost;
+    private List<TaskOrgnizedResponse> subtasks;
 
-    public static TaskResponse mapToTaskResponse(Task task){
+    public static TaskOrgnizedResponse mapToTaskOrgnizedResponse(Task task){
         if(task == null)
             return null;
         return builder()
@@ -41,11 +40,12 @@ public class TaskResponse {
             .type(task.getType())
             .cost(calculateCost(task.getResources(), task.getStart(), task.getEnd()))
             .resources(task.getResources() != null? task.getResources().stream().map(resource -> TaskResourceResponse.mapToTaskResourcesResponse(resource)).toList() : null)
+            .subtasks(mapToTaskOrgnizedResponseList(task.getSubtasks()))
             .build();
     }
-    public static List<TaskResponse> mapToTaskResponseList(List<Task> tasks){
-        List<TaskResponse> result = new LinkedList<>();
-        tasks.forEach(task -> result.add(mapToTaskResponse(task)));
+    public static List<TaskOrgnizedResponse> mapToTaskOrgnizedResponseList(List<Task> tasks){
+        List<TaskOrgnizedResponse> result = new LinkedList<>();
+        tasks.forEach(task -> result.add(mapToTaskOrgnizedResponse(task)));
         return result;
     }
 
@@ -66,4 +66,5 @@ public class TaskResponse {
             }
         return cost;
     }
+    
 }

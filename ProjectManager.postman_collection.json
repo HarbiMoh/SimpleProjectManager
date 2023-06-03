@@ -7,6 +7,19 @@
 	"item": [
 		{
 			"name": "Signup",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -34,6 +47,19 @@
 		},
 		{
 			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -61,11 +87,8 @@
 		},
 		{
 			"name": "Create Project",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
@@ -92,15 +115,12 @@
 		},
 		{
 			"name": "Create Task",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"Design\",\n    \"order\":1,\n    \"type\":\"TASK\",\n    \"start\": \"2001-01-01\",\n    \"end\": \"2001-01-03\"\n}",
+					"raw": "{\n    \"name\":\"Design\",\n    \"order\":1,\n    \"type\":\"TASK\",\n    \"start\": \"2001-01-01\",\n    \"end\": \"2001-01-03\",\n    \"resources\":{\n            \"resourcesId\":[1,2],\n            \"costs\":[750, 345]\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"

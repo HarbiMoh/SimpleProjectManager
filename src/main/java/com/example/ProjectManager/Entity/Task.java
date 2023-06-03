@@ -48,6 +48,9 @@ public class Task {
     @ManyToOne
     private Task parent;
 
+    @OneToMany(mappedBy = "parent")
+    private List<Task> subtasks;
+
     @OneToMany(mappedBy = "task", cascade = CascadeType.ALL)
     private List<TaskResource> resources;
 
