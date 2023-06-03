@@ -1,0 +1,91 @@
+ .add_blog_btn{
+     float: right;
+ }
+
+ .ck.ck-content{
+    height: 200px !important;
+    font-size: 14px;
+ }
+
+ form input,
+ form textarea,
+ form select{
+    font-size: 14px !important;
+ }
+
+ img.blog_image_tbl{
+    width: 91px;
+    height: 91px;
+    border-radius: 10px;
+ }
+
+ button.ratings{
+    padding: 0;
+    border: none;
+    background: none;
+    color: #b6ab08;
+    outline: none;
+    box-shadow: none;
+ }
+
+
+ span.total_ratings{
+    margin-left: 12px;
+    font-size: 14px;
+    font-weight: 600;
+ }
+
+ input#ratingsInput{
+    width: 29px;
+    padding: 0;
+ }
+ i.checkedRate{
+   color: #b6ab08;
+ }
+
+ span.ratings_show{
+   font-size: 11px;
+   margin-left: 12px;
+ }
+
+ .widget.search .submit{
+    right:-17px !important;
+ }
+
+ #showBlogs a.btn{
+   font-size: 13px;
+   padding: 4px 9px;
+ }
+
+
+ a.del_comment{
+   position: absolute;
+   right: 24px;
+   top: 16px;
+   font-size: 21px;
+ }
+
+ .comment{
+    position: relative;
+ }
+
+
+ .replycomment input{
+   width: 100%;
+   padding: 8px;
+   border: 1px solid #e7e7e7;
+   margin-bottom: 6px;
+ }
+ .replycomment {
+   width: 96%; 
+   padding: 8px 23px; 
+ }
+
+ .replycommentfetch {
+   width: 96%;
+   background-color: #e7e7e78f;
+   padding: 8px 23px;
+   margin-left: 23px;
+   margin-bottom: 12px;
+   position: relative;
+ }

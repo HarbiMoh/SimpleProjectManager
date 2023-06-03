@@ -1,0 +1,123 @@
+
+.nav-gradient{
+  background: rgb(72,86,148);
+  background: linear-gradient(333deg, rgba(72,86,148,1) 0%, rgba(23,170,255,1) 0%, rgba(185,255,221,1) 100%); 
+}
+
+.m45 {
+  margin: 45px;
+}
+
+.m90 {
+  margin: 90px;
+}
+
+.pimg2 {
+  margin: auto;
+  border: 1px solid black;
+  padding: 50px;
+}
+
+.sharebutton {
+  border: none;
+  width: 110px;
+  height: 110px;
+  background-color: white;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 5px;
+}
+
+.buttons {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.right {
+  margin-left: 600px;
+  width: 45%;
+  float: left;
+}
+
+.left {
+  margin: auto;
+  width: 20%;
+  height: 35%;
+  padding: 0px;
+  float: left;
+  margin-right: -20px;
+}
+
+.pimg {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+}
+
+.w50 {
+  width: 50%;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.h3 {
+  font-size: 25px;
+}
+
+.h5 {
+  font-size: 15px;
+}
+
+.price {
+  font-size: 15px;
+}
+
+.rp {
+  width: 450px;
+  height: 450px;
+}
+
+.pricerec {
+  font-size: 15px;
+}
+
+.buttonsize {
+  width: 100px;
+  height: 50px;
+}
+
+.cominput {
+  width: 40%;
+  padding: 5px;
+}
+
+.accom {
+  width: 50px;
+  height: 50px;
+}
+
+.whish {
+  margin-left: 250px;
+}
+
+.share {
+  margin-left: 250px;
+  margin-top: 10px;
+}
+
+img {
+  height: 50px;
+}
+
+.whish{
+margin-left:250px;
+}
+
+.shadow{
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+}
