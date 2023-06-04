@@ -1,13 +1,39 @@
-<script setup>
-import { RouterView } from 'vue-router'
-import NavBar from './components/Nav-bar.vue';
+<script>
+import NavBar from './components/Nav-bar.vue'
+import router from './router'
+
+export default {
+  data() {
+    return {
+      username: '',
+      projectId: ''
+    }
+  },
+  methods: {
+    onLogout: function () {
+      this.username = ''
+      this.projectId = ''
+      router.push({ path: '/' })
+    }
+  },
+  components: { NavBar }
+}
 </script>
 
-
-
 <template>
-  <NavBar />
-  <RouterView />
+  <NavBar :username="username" :projectId="projectId" @logout="onLogout" />
+  <RouterView
+    @usernameChange="
+      (newUsername) => {
+        username = newUsername
+      }
+    "
+    @projectChanged="
+      (newProjectId) => {
+        projectId = newProjectId
+      }
+    "
+  />
 </template>
 
 <style scoped>
