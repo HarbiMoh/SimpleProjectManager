@@ -3,17 +3,12 @@ import NavBar from './components/Nav-bar.vue'
 import router from './router'
 
 export default {
-  data() {
-    return {
-      username: '',
-      projectId: ''
-    }
-  },
   methods: {
     onLogout: function () {
-      this.username = ''
-      this.projectId = ''
       router.push({ path: '/' })
+    },
+    onProjectChange: function (projectId) {
+      router.push(`/${this.$route.params.username}/${projectId}`)
     }
   },
   components: { NavBar }
@@ -21,18 +16,9 @@ export default {
 </script>
 
 <template>
-  <NavBar :username="username" :projectId="projectId" @logout="onLogout" />
+  <NavBar :username="this.$route.params.username" :projectId="this.$route.params.projectId" @logout="onLogout" />
   <RouterView
-    @usernameChange="
-      (newUsername) => {
-        username = newUsername
-      }
-    "
-    @projectChanged="
-      (newProjectId) => {
-        projectId = newProjectId
-      }
-    "
+    @projectChange="onProjectChange"
   />
 </template>
 

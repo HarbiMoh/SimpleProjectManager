@@ -103,7 +103,6 @@ export default {
                   <td></td>
                   <td></td>
                   <td>{{ projectCost }}</td>
-                  <td></td>
                 </tr>
               </tbody>
             </table>

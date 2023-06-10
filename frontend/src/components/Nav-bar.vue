@@ -54,6 +54,7 @@ export default {
             <li class="nav-item">
               <RouterLink :to="`/${username}`" class="nav-link active"> Home </RouterLink>
             </li>
+
             <li class="nav-item">
               <RouterLink :to="`/${username}/create/project`" class="nav-link active">
                 Create Project
@@ -64,6 +65,24 @@ export default {
               v-if="projectId != null && projectId != '' && projectId != undefined"
               style="display: flex"
             >
+
+
+
+            <li class="nav-item">
+                <RouterLink
+                  :to="`/${username}/${projectId}/create/resource`"
+                  class="nav-link active"
+                >
+                  create resource
+                </RouterLink>
+              </li>
+
+            <li class="nav-item">
+                <RouterLink :to="`/${username}/${projectId}/create/task`" class="nav-link active">
+                  create task
+                </RouterLink>
+              </li>
+
               <li class="nav-item">
                 <RouterLink
                   :to="`/${username}/${projectId}/display/project_total_cost`"
@@ -81,6 +100,7 @@ export default {
                   display TasksTotalCost
                 </RouterLink>
               </li>
+
               <li class="nav-item">
                 <RouterLink
                   :to="`/${username}/${projectId}/display/resources`"
@@ -91,25 +111,12 @@ export default {
               </li>
 
               <li class="nav-item">
-                <RouterLink
-                  :to="`/${username}/${projectId}/create/resource`"
-                  class="nav-link active"
-                >
-                  create resource
-                </RouterLink>
-              </li>
-
-              <li class="nav-item">
                 <RouterLink :to="`/${username}/${projectId}/display/tasks`" class="nav-link active">
                   display tasks
                 </RouterLink>
               </li>
 
-              <li class="nav-item">
-                <RouterLink :to="`/${username}/${projectId}/create/task`" class="nav-link active">
-                  create task
-                </RouterLink>
-              </li>
+
 
               <li class="nav-item">
                 <RouterLink

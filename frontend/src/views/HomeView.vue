@@ -25,7 +25,7 @@ export default {
         responseType: 'json'
       }).then(() => {
         console.log('deleted')
-        this.$emit('projectChanged', '')
+        this.$emit('projectChange', '')
         this.getProjects()
         alert('deleted succesfully!')
       })
@@ -73,7 +73,7 @@ export default {
                       <!-- <a href="#" class="btn btn-info">Edit</a> -->
                       <a
                         href="#"
-                        @click="$emit('projectChanged', project.id)"
+                        @click="$emit('projectChange', project.id)"
                         class="btn btn-success"
                         >select</a
                       >

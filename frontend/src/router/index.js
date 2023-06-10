@@ -26,6 +26,11 @@ const router = createRouter({
       component: HomeView
     },
     {
+      path: '/:username/:projectId',
+      name: 'home_with_proejct_selected',
+      component: HomeView
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting

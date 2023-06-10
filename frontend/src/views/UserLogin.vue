@@ -28,7 +28,6 @@ export default {
         (response) => {
           console.log(response)
           router.push({ path: `/${response.data.username}` })
-          this.$emit('usernameChange', response.data.username)
           alert('Logged!')
         },
         (response) => {
